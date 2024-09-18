@@ -1,0 +1,21 @@
+name: Golang build
+
+on: [push] # mss moet dit main zijn 
+
+# These variables can be reused in the build steps
+env:
+  GOLANG_VERSION: 1.21.x
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Code Build steps
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go ${{ env.GOLANG_VERSION }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GOLANG_VERSION }}
+      - name: Build
+        run: go build -o ../bin/workshop ./...
+        working-directory: workshop-service
