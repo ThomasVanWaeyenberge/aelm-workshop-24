@@ -17,7 +17,7 @@ jobs:
         with:
           go-version: ${{ env.GOLANG_VERSION }}
       - name: Build
-        run: go build -o ../bin/workshop 
+        run: go build -o ../bin/workshop -v ./...
         working-directory: workshop-service
 
       - name: Upload /bin folder as artifact
@@ -29,6 +29,7 @@ jobs:
 
 
   docker: 
+    needs: build 
     runs-on: ubuntu-latest 
     steps: 
       - uses: actions/checkout@v2
