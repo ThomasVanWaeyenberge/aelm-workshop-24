@@ -17,7 +17,7 @@ jobs:
         with:
           go-version: ${{ env.GOLANG_VERSION }}
       - name: Build
-        run: go build -o ../bin/workshop ./...
+        run: go build -o ../bin/workshop 
         working-directory: workshop-service
 
       - name: Upload /bin folder as artifact
