@@ -5,6 +5,8 @@ on: [push] # mss moet dit main zijn
 # These variables can be reused in the build steps
 env:
   GOLANG_VERSION: 1.21.x
+  DOCKER_REPOSITORY: tourna
+  DOCKER_IMAGE: aelm-workshop-24
 
 jobs:
   build:
